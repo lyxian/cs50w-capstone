@@ -1,0 +1,41 @@
+{% extends "app/layout.html" %}
+{% load static %}
+
+{% block body %}
+<div id="watchlist">
+	<div id="products" style="vertical-align:top; width:49%; display:inline-block; text-align:justify">
+		<h2 class="head">Products Watchlist</h2>
+		{% for item in products %}
+		<div class="info" data-num="0" style="margin:0px; padding:15px; text-align:center;">
+			<a href={{item.url}}>{{item.name}}</a>
+			<img width="auto" height="120px" src={{item.img}}>
+			<p>Starting Price: <strong>{{item.price}}</strong></p>
+			<button class="remove">Remove</button>
+		</div>
+		{% empty %}
+		<div class="info" style="margin:0px; padding:15px; text-align:center;">
+			<p>Nothing in watchlist</p>
+		</div>
+		{% endfor %}
+	</div>
+	<div id="shows" style="vertical-align:top; width:49%; display:inline-block; text-align:justify">
+		<h2 class="head">Shows Watchlist</h2>
+		{% for item in shows %}
+		<div class="info" data-num="1" style="margin:0px; padding:15px; text-align:center;">
+			<a href={{item.url}}>{{item.name}}</a>
+			<img width="auto" height="120px" src={{item.img}}>
+			<p>Genre: <strong>{{item.genre}}</strong></p>
+			<button class="remove">Remove</button>
+		</div>
+		{% empty %}
+		<div class="info" style="margin:0px; padding:15px; text-align:center;">
+			<p>Nothing in watchlist</p>
+		</div>
+		{% endfor %}
+	</div>
+</div>
+{% endblock %}
+
+{% block script %}
+<script src="{% static 'app/index.js' %}"></script>
+{% endblock %}

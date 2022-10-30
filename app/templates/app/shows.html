@@ -1,0 +1,28 @@
+{% extends "app/layout.html" %}
+{% load static %}
+
+{% block body %}
+<div>
+	<h2 class="genre" style="font-weight: normal;">Netflix Shows from <strong>{{genre}}</strong></h2>
+	{% for show in shows %}
+	<table style="margin-top:10px; margin-bottom:10px; border:1px solid #AAAAAA; table-layout:fixed;">
+		<tr height="100px">
+			<td style="width:180px; text-align:center; padding:10px;">
+				<a href={{show.url}}>
+					<img class="img" src={{show.img}} style="margin:0px;" width="auto" height="100px">
+				</a>
+			</td>
+			<td style="width:300px; text-align:left; padding:10px; overflow:hidden;">
+				<p class="name"><strong>{{show.name}}</strong></p>
+				<a class="url" href={{show.url}}>Link Here</a>
+				</br><button class="test">Watchlist</button>
+			</td>
+		</tr>
+	</table>
+	{% endfor %}
+</div>
+{% endblock %}
+
+{% block script %}
+<script src="{% static 'app/shows.js' %}"></script>
+{% endblock %}

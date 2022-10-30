@@ -1,0 +1,92 @@
+body {
+	margin: 0px;
+}
+
+div.body {
+	padding: 15px;
+}
+
+div.navbar {	
+	background-color: #CCCCCC;
+	padding: 15px;
+}
+
+div.acc {
+	display: inline;
+	float: right;
+}
+
+div.navbar > a {
+	padding: 5px 8px;
+	margin-right: 10px;
+	font-size: 20px;
+	font-family: 'Courier New';
+}
+
+div.acc > a {
+	padding: 5px 8px;
+	font-size: 20px;
+	font-family: 'Courier New';
+}
+
+div.info {
+	white-space: nowrap;
+	overflow: hidden;
+	text-overflow: ellipsis;
+}
+
+div.info > button, div.info > img {
+	display: block;
+	margin: auto;
+	margin-top: 15px;
+}
+
+div.info > a, div.info > p {
+	margin: 0px;
+	margin-top: 10px;
+	font-family: 'Courier New';
+}
+
+td > a, td > p {
+	margin: 5px;
+	font-family: 'Courier New';
+}
+
+h2.head {
+	text-align: center;
+}
+
+h2 {
+	font-family: 'Papyrus';
+	margin: 0px;
+}
+
+button {
+	margin: 5px;
+	margin-top: 15px;
+}
+
+img {
+	margin: 0px;
+}
+
+p.msg {	
+	animation-name: hide;
+	animation-duration: 5s;
+	animation-fill-mode: forwards;
+	animation-iteration-count: 1;
+}
+
+
+
+@keyframes hide{
+	0% {
+		opacity: 1;
+	}
+	40% {
+		opacity: 1;
+	}
+	100% {
+		opacity: 0;
+	}
+}

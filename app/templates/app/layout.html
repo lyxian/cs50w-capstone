@@ -1,0 +1,34 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+		<!-- Title -->
+        <title>DIY Watchlist</title>
+		
+		<!--
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+        -->
+		<link href="{% static 'app/styles.css' %}" rel="stylesheet">
+		
+		{% block script %}
+		{% endblock %}
+    </head>
+    <body>
+		<div class="navbar">
+			<a href="{% url 'index' %}">Home</a><a href="{% url 'shops' %}">Shops</a><a href="{% url 'shows' %}">Shows</a>
+			<div class="acc">
+				{% if user.is_authenticated %}
+				<h2 style="font-family: papyrus; vertical-align:center; font-size:15px; font-weight:normal; display:inline; margin-right:15px;">Signed in as <strong>{{user.username}}</strong></h2><a href="{% url 'logout' %}">Sign Out</a>
+				{% else %}
+				<a href="{% url 'register' %}">Register</a><a href="{% url 'login' %}">Sign In</a>
+				{% endif %}
+			</div>
+		</div>
+		
+		<div class="body">
+			{% block body %}
+			{% endblock %}
+		</div>
+    </body>
+</html>

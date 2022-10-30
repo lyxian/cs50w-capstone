@@ -1,0 +1,30 @@
+{% extends "app/layout.html" %}
+{% load static %}
+
+{% block body %}
+<div>
+	<h2 style="font-weight: normal;">Amazon Bestsellers from <strong>{{category}}</strong></h2>
+	{% for item in items %}
+	<table style="margin-top:10px; margin-bottom:10px; border:1px solid #AAAAAA; table-layout:fixed;">
+		<tr height="100px">
+			<td style="width:100px; text-align:center; padding:10px;">
+				<a href={{item.url}}>
+					<img class="img" src={{item.img}} width="auto" height="100px">
+				</a>
+			</td>
+			<td style="width:800px; text-align:left; padding:10px; overflow:hidden;">
+				<p class="name"><strong>{{item.name}}</strong></p>
+				<p class="price"><strong>Starting Price:</strong> {{item.price}}</p>
+				<a class="url" href={{item.url}}>Link Here</a>
+				</br><button class="test">Watchlist</button>
+			</td>
+		</tr>
+	</table>
+
+	{% endfor %}
+</div>
+{% endblock %}
+
+{% block script %}
+<script src="{% static 'app/shops.js' %}"></script>
+{% endblock %}

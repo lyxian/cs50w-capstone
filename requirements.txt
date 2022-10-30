@@ -1,0 +1,5 @@
+gunicorn
+whitenoise
+beautifulsoup4==4.9.3
+Django==3.0.8
+requests==2.25.1
