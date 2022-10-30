@@ -27,6 +27,7 @@ DEBUG = True
 
 ALLOWED_HOSTS = [
     'radiant-earth-90120.herokuapp.com',
+    '192.168.2.136'
 ]
 
 
