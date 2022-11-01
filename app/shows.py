@@ -4,15 +4,11 @@ import random
 
 # Show Name > Show Url > Show Image
 def randomTag(s):
-    n = len(s.find_all('section'))
-    return [i.find('h1').text for i in s.find_all('section')][random.randint(0,n-1)]
-    return [i.find('h1').find('span').text if i.find('h1').find('span') else i.find('h1').text for i in s.find_all('section')][random.randint(0,n-1)]
+    n = len(s.find_all('h2'))-2
+    return [i.text for i in s.find_all('h2')][random.randint(0,n)]
 
 def getTag(tag, tagname):
-    return tag.find('h1').text == tagname
-    
-def popularTag(tag):
-    return tag.find('h1').text == 'Popular on Netflix'
+    return tag.h2.text == tagname if tag.h2 else False
 
 def showNames(div):
     return [i.find('span', {'class':'nm-collections-title-name'}).text for i in div.find_all('li')]
@@ -28,8 +24,8 @@ def showURLs(div):
 
 def returnPopularShows(url):
     s = bs(r.get(url).content, 'html.parser')
-    #div = [tag for tag in s.find_all('section') if popularTag(tag)][0]
     genre = randomTag(s)
+    print(genre)
     div = [tag for tag in s.find_all('section') if getTag(tag, genre)][0]
     names = showNames(div)
     images = showImages(div)
